@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Les Ailes HSE</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+.header{
+    background:#d50000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+form{
+    text-align:center;
+    margin:20px;
+}
+
+input{
+    padding:10px;
+    margin:5px;
+}
+
+button{
+    background:#d50000;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+table{
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:#d50000;
+    color:white;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+
+h2{
+    text-align:center;
+}
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+.header{
+    background:#d50000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.danger{
+    background:#ffb3b3;
+}
+
+.warning{
+    background:#fff3b0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>LES AILES HSE SYSTEM</h1>
+    <p>Меҳнат муҳофазаси ва техника хавфсизлиги</p>
+</div>
+
+<h2>Бошқарув панели</h2>
+<a href="/logout">
+    <button>Чиқиш</button>
+</a>
+
+<div class="container">
+
+<div class="card">
+<h3>Ишчилар</h3>
+<p>Ишчилар базаси</p>
+</div>
+
+<div class="card">
+<h3>Тестлар</h3>
+<p>Онлайн имтиҳонлар</p>
+</div>
+
+<div class="card">
+<h3>Йўриқномалар</h3>
+<p>Хавфсизлик ҳужжатлари</p>
+</div>
+
+<div class="card">
+<h3>Тиббий кўрик</h3>
+<p>Муддатларни назорат қилиш</p>
+</div>
+
+</div>
+
+<h2>Ишчи қўшиш</h2>
+
+<form method="POST" action="/add">
+
+<input type="text"
+       name="fullname"
+       placeholder="Ф.И.О"
+       required>
+
+<input type="text"
+       name="position"
+       placeholder="Лавозим"
+       required>
+
+<input type="text"
+       name="phone"
+       placeholder="Телефон"
+       required>
+
+<input type="date"
+       name="medical_date"
+       required>
+
+<button type="submit">
+Сақлаш
+</button>
+
+</form>
+
+<hr>
+
+<h2>Ишчилар рўйхати</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Ф.И.О</th>
+<th>Лавозим</th>
+<th>Телефон</th>
+<th>Тиббий кўрик</th>
+</tr>
+
+{% for e in employees %}
+
+<tr class="{{ e.status }}">
+    <td>{{ e.id }}</td>
+    <td>{{ e.fullname }}</td>
+    <td>{{ e.position }}</td>
+    <td>{{ e.phone }}</td>
+    <td>{{ e.medical_date }}</td>
+</tr>
+
+{% endfor %}
+</table>
+
+</body>
+</html>
+<a href="/test">
+    <button>Тестни бошлаш</button>
+</a>
