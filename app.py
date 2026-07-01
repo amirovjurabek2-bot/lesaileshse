@@ -339,10 +339,10 @@ def users():
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT id, username, role, branch
-        FROM users
-        ORDER BY username
-    """)
+    SELECT id, username, role
+    FROM users
+    ORDER BY username
+""")
 
     users = cur.fetchall()
 
@@ -831,8 +831,10 @@ BRANCHES = [
 
 if __name__ == "__main__":
     init_db()
+    create_admin()
     seed_tests()
 
-    import_equipment_from_excel("equipment.xlsx")
+    if os.path.exists("equipment.xlsx"):
+        import_equipment_from_excel("equipment.xlsx")
 
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
