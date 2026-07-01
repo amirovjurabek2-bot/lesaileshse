@@ -621,6 +621,18 @@ def results():
     conn.close()
 
     return render_template("results.html", results=results)
+    @app.route('/clear-results')
+def clear_results():
+    import sqlite3
+
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+
+    cur.execute("DELETE FROM results;")
+    conn.commit()
+    conn.close()
+
+    return "RESULTS TOZALANDI ✅"
 
 
 # =========================
