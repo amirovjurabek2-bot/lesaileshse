@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Тестни бошлаш</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+.header{
+    background:#d50000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    width:500px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,.15);
+}
+
+label{
+    font-weight:bold;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#d50000;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#b30000;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>LES AILES HSE</h1>
+<h3>Тест иштирокчиси</h3>
+</div>
+
+<div class="container">
+
+<form method="POST" action="/start_test">
+
+<label>Ф.И.О.</label>
+
+<input
+type="text"
+name="fullname"
+required>
+
+<label>Лавозими</label>
+
+<input
+type="text"
+name="position"
+required>
+
+<label for="branch">Филиали</label>
+
+<select name="branch" id="branch" required>
+
+    <option value="">-- Танланг --</option>
+
+    <option value="AZIYA">AZIYA</option>
+    <option value="KO'KCHA">KO'KCHA</option>
+    <option value="PARUS">PARUS</option>
+    <option value="SERGELI">SERGELI</option>
+    <option value="M.GORKIY">M.GORKIY</option>
+    <option value="ALPOMISH">ALPOMISH</option>
+    <option value="CHILONZOR">CHILONZOR</option>
+    <option value="FARXADSKIY">FARXADSKIY</option>
+    <option value="RIVEIRA">RIVEIRA</option>
+    <option value="HAMZA">HAMZA</option>
+    <option value="YUNUSOBOD">YUNUSOBOD</option>
+    <option value="OYBEK">OYBEK</option>
+    <option value="40 LET">40 LET</option>
+    <option value="C-5">C-5</option>
+    <option value="ZENIT">ZENIT</option>
+    <option value="MEGAPLANET">MEGAPLANET</option>
+    <option value="S.RAXIMOV">S.RAXIMOV</option>
+    <option value="NEXT">NEXT</option>
+    <option value="CHIMGAN">CHIMGAN</option>
+    <option value="SAMPI">SAMPI</option>
+    <option value="C-1">C-1</option>
+    <option value="BOCHKA">BOCHKA</option>
+    <option value="QO'YLIQ">QO'YLIQ</option>
+
+</select>
+<label>Тест тури</label>
+
+<select name="category" required>
+
+<option value="fire">Ёнғин хавфсизлиги</option>
+
+<option value="electric">Электр хавфсизлиги</option>
+
+<option value="sanitary">Санитария</option>
+
+<option value="firstaid">Биринчи ёрдам</option>
+
+</select>
+
+<button type="submit">
+
+ТЕСТНИ БОШЛАШ
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

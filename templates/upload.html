@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+/* PAGE */
+.page{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* CARD */
+.card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+h2{
+    margin:0 0 15px 0;
+    color:#0d47a1;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* UPLOAD BOX */
+.upload-area{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+/* FILE INPUT */
+input[type="file"]{
+    border:2px dashed #1976d2;
+    padding:14px;
+    border-radius:12px;
+    background:#f5f9ff;
+    cursor:pointer;
+}
+
+/* BUTTON */
+.btn{
+    padding:12px 18px;
+    background:linear-gradient(135deg,#1976d2,#0d47a1);
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(25,118,210,0.3);
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+/* HEADER */
+th{
+    background:#1976d2;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+/* ROW */
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f5f9ff;
+}
+
+/* LINK */
+a{
+    text-decoration:none;
+    color:#1976d2;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#0d47a1;
+}
+
+.badge{
+    background:#e3f2fd;
+    padding:4px 8px;
+    border-radius:8px;
+    font-size:12px;
+    color:#1976d2;
+}
+
+</style>
+
+<div class="page">
+
+    <!-- UPLOAD CARD -->
+    <div class="card">
+
+        <h2>📤 Файл юклаш</h2>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-area">
+
+            <input type="file" name="file" required>
+
+            <button class="btn" type="submit">
+                ⬆ Юклаш
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- FILE LIST -->
+    <div class="card">
+
+        <h2>📂 Юкланган файллар</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Файл номи</th>
+                <th>Амалиёт</th>
+            </tr>
+
+            {% for file in files %}
+            <tr>
+                <td><span class="badge">{{ file[0] }}</span></td>
+                <td>{{ file[1] }}</td>
+                <td>
+                    <a href="/uploads/{{ file[1] }}" target="_blank">
+                        👁 Кўриш
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

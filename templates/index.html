@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LES AILES HSE SYSTEM</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+}
+
+.header{
+background:#d50000;
+color:white;
+text-align:center;
+padding:35px;
+}
+
+.header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:18px;
+}
+
+.logout{
+position:absolute;
+left:20px;
+top:20px;
+background:white;
+color:#d50000;
+padding:10px 20px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.title{
+text-align:center;
+font-size:34px;
+margin-top:40px;
+margin-bottom:30px;
+}
+
+.container{
+width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.card{
+width:270px;
+height:160px;
+background:white;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+padding:25px;
+transition:.3s;
+cursor:pointer;
+text-decoration:none;
+color:black;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:16px;
+color:#555;
+}
+
+.form-box{
+width:1200px;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+form{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+input{
+padding:12px;
+width:220px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+background:#d50000;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#b30000;
+}
+
+.table-box{
+width:1200px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.table-box h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#d50000;
+color:white;
+padding:15px;
+}
+
+td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.danger{
+background:#ffd6d6;
+}
+
+.warning{
+background:#fff4b3;
+}
+
+.normal{
+background:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="/uploads/{{ filename }}">Кўриш / Юклаб олиш</a>
+
+<a href="/logout" class="logout">Чиқиш</a>
+
+<div class="header">
+
+<h1>LES AILES HSE SYSTEM</h1>
+
+<p>Меҳнат муҳофазаси ва техника хавфсизлиги</p>
+
+</div>
+
+<h2 class="title">Бошқарув панели</h2>
+
+<div class="container">
+
+<a href="/employees" class="card">
+
+<h2>👥</h2>
+
+<h3>Ишчилар</h3>
+
+<p>Ишчилар базаси</p>
+
+</a>
+
+<a href="/test" class="card">
+
+<h2>📝</h2>
+
+<h3>Тестлар</h3>
+
+<p>Онлайн имтиҳонлар</p>
+
+</a>
+
+<a href="/instructions" class="card">
+
+<h2>📚</h2>
+
+<h3>Йўриқномалар</h3>
+
+<p>Хавфсизлик ҳужжатлари</p>
+
+</a>
+
+<a href="/medical" class="card">
+
+<h2>🩺</h2>
+
+<h3>Тиббий кўрик</h3>
+
+<p>Муддатларни назорат қилиш</p>
+
+</a>
+
+</div>
+<div class="form-box">
+
+<h2>Ишчи қўшиш</h2>
+
+<form method="POST" action="/add">
+
+<input
+type="text"
+name="fullname"
+placeholder="Ф.И.О"
+required>
+
+<input
+type="text"
+name="position"
+placeholder="Лавозим"
+required>
+
+<input
+type="text"
+name="phone"
+placeholder="Телефон"
+required>
+
+<input
+type="date"
+name="medical_date"
+required>
+
+<button type="submit">
+
+💾 Сақлаш
+
+</button>
+
+</form>
+
+</div>
+
+<div class="table-box">
+
+<h2>Ишчилар рўйхати</h2>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Ф.И.О</th>
+
+<th>Лавозим</th>
+
+<th>Телефон</th>
+
+<th>Тиббий кўрик</th>
+
+</tr>
+
+{% for e in employees %}
+
+<tr class="{{ e.status }}">
+
+<td>{{ e.id }}</td>
+
+<td>{{ e.fullname }}</td>
+
+<td>{{ e.position }}</td>
+
+<td>{{ e.phone }}</td>
+
+<td>{{ e.medical_date }}</td>
+
+</tr>
+
+{% endfor %}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h3>Бошқарув панели</h3>
+    <p>Хуш келибсиз!</p>
+</div>
+
+{% endblock %}
+
+</table>
+
+</div>
+<style>
+
+@media (max-width:1200px){
+
+.container,
+.form-box,
+.table-box{
+
+width:95%;
+
+}
+
+.card{
+
+width:48%;
+margin-bottom:20px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.card{
+
+width:100%;
+
+}
+
+form{
+
+flex-direction:column;
+
+}
+
+input,
+button{
+
+width:100%;
+
+}
+
+.header h1{
+
+font-size:30px;
+
+}
+
+.title{
+
+font-size:28px;
+
+}
+
+}
+
+</style>
+
+</body>
+
+</html>

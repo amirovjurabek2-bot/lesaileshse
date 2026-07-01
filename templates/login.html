@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LES AILES HSE - Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#d50000,#8b0000);
+overflow:hidden;
+}
+
+body::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:-150px;
+left:-150px;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:450px;
+height:450px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+bottom:-150px;
+right:-150px;
+}
+
+.login-box{
+position:relative;
+z-index:10;
+width:430px;
+background:rgba(255,255,255,.95);
+padding:45px;
+border-radius:20px;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+text-align:center;
+}
+
+.logo{
+font-size:70px;
+margin-bottom:10px;
+}
+
+h1{
+font-size:30px;
+color:#d50000;
+margin-bottom:8px;
+}
+
+.subtitle{
+color:#666;
+font-size:15px;
+margin-bottom:35px;
+}
+
+.input-group{
+margin-bottom:20px;
+text-align:left;
+}
+
+.input-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:#444;
+}
+
+.input-group input{
+width:100%;
+padding:14px;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:15px;
+transition:.3s;
+outline:none;
+}
+
+.input-group input:focus{
+border-color:#d50000;
+box-shadow:0 0 10px rgba(213,0,0,.25);
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#d50000;
+color:white;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#b00000;
+transform:translateY(-2px);
+}
+
+.footer{
+margin-top:25px;
+font-size:13px;
+color:#888;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<div class="logo">🛡️</div>
+
+<h1>LES AILES HSE</h1>
+
+<p class="subtitle">
+Health, Safety & Environment System
+</p>
+
+<form method="POST">
+
+<div class="input-group">
+
+<label>👤 Login</label>
+
+<input
+type="text"
+name="username"
+placeholder="Login"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>🔒 Parol</label>
+
+<input
+type="password"
+name="password"
+placeholder="Parol"
+required>
+
+</div>
+
+<button type="submit">
+
+🚀 TIZIMGA KIRISH
+
+</button>
+
+</form>
+
+<div class="footer">
+
+LES AILES HSE SYSTEM © 2026
+
+</div>
+
+</div>
+
+</body>
+</html>

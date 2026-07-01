@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}HSE{% endblock %}</title>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div>
+    <a href="/admin">Admin</a>
+    <a href="/user">User</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<hr>
+
+<!-- CONTENT -->
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Тест натижалари</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+.header{
+    background:#d50000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    width:1300px;
+    margin:30px auto;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    background:#d50000;
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+th{
+    background:#d50000;
+    color:white;
+    padding:14px;
+}
+
+td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.good{
+    background:#d8ffd8;
+}
+
+.bad{
+    background:#ffd8d8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>📊 ТЕСТ НАТИЖАЛАРИ</h1>
+
+</div>
+
+<div class="container">
+
+<a href="/" class="back">⬅ Dashboard</a>
+
+<table>
+
+<tr>
+
+<th>Ф.И.О.</th>
+<th>Лавозим</th>
+<th>Филиал</th>
+<th>Тест</th>
+<th>Балл</th>
+<th>Сана</th>
+
+</tr>
+
+{% for r in results %}
+
+<tr class="{% if r[5] >= 80 %}good{% else %}bad{% endif %}">
+
+<td>{{ r[1] }}</td>
+
+<td>{{ r[2] }}</td>
+
+<td>{{ r[3] }}</td>
+
+<td>{{ r[4] }}</td>
+
+<td>{{ r[5] }} %</td>
+
+<td>{{ r[6] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
